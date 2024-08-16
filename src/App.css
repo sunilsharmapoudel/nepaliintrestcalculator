@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  font-family: "Rubik", sans-serif;
+  font-weight: 300;
+  background: #131314
+}
+
+@media only screen and (max-width: 600px) {
+  .nav-desktop {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .nav-mob {
+    display: none;
+  }
+}
