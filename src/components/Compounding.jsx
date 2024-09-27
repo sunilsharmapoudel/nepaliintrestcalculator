@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react"
 
-const Label = ({ name, onPChange }) => {
-    const [principle, setPrinciple] = useState(0);
+const Compounding = ({ name, onCChange }) => {
+    const [compounding, setCompounding] = useState(0)
     const [error, setError] = useState("");
     const [errorTimeout, setErrorTimeout] = useState(null);
-
 
     const handleInputChange = (value) => {
         const regx = /^[0-9]*\.?[0-9]*$/;
         if (regx.test(value)) {
-            setPrinciple(value);
+            setCompounding(value);
             setError("");
         } else {
             setError("Please enter a valid principle");
@@ -20,23 +19,28 @@ const Label = ({ name, onPChange }) => {
         }
     }
 
+    
+
     const changetoNum = (value) => {
-        const num = parseFloat(value, 10)
+        const num = parseInt(value, 10)
         return isNaN(num) ? 0 : num;
     }
 
-    const numPrinciple = changetoNum(principle);
+    const numCompouding = changetoNum(compounding);
 
     useEffect(() => {
-        onPChange(numPrinciple);
-    }, [onPChange, numPrinciple])
+        onCChange(numCompouding);
+    }, [onCChange, numCompouding])
 
-    return (<div className="mb-7">
-        <label className=" text-white" htmlFor={name}>{name}</label>
-        <input autoComplete="true" className="ml-2 rounded-md w-28 px-2" type="text" placeholder="0" id={name} value={principle} onChange={(e) => { handleInputChange(e.target.value) }} />
+    return (<div className="mt-7">
+        <div>
+            <label className=" text-white" htmlFor={name}>{name}</label>
+            <input autoComplete="true" className="ml-2 rounded-md w-28 px-2" type="text" id={name} value={compounding} onChange={(e) => { handleInputChange(e.target.value) }} />
+            <span className=" text-white ml-2">In years</span>
+        </div>
         {error && <span className="text-red-500 text-sm ml-2">{error}</span>}
     </div>
     )
 }
 
-export default Label
+export default Compounding

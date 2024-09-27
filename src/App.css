@@ -3,17 +3,71 @@
 body {
   font-family: "Rubik", sans-serif;
   font-weight: 300;
-  background: #131314
+  background: #131314;
 }
 
-@media only screen and (max-width: 600px) {
-  .nav-desktop {
-    display: none;
+.ham-bar1,
+.ham-bar2,
+.ham-bar3 {
+  height: 0.18rem;
+  width: 1.8rem;
+  background-color: white;
+  margin: 7px;
+  transition: 0.5s;
+}
+
+.animate.ham-bar1 {
+  transform: translate(0, 10px) rotate(-45deg);
+}
+
+.animate.ham-bar2 {
+  opacity: 0;
+}
+
+.animate.ham-bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+
+.nav-mob {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hide-drawer {
+  display: none;
+  transform: translateX(0);
+}
+
+.page-h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+@media (max-width: 640px) {
+  .ham-bar1,
+  .ham-bar2,
+  .ham-bar3 {
+    height: 0.15rem;
+    width: 1.6rem;
+    background-color: white;
+    margin: 5px;
+    transition: 0.5s;
   }
-}
 
-@media only screen and (min-width: 600px) {
-  .nav-mob {
-    display: none;
+  .animate.ham-bar1 {
+    transform: translate(0, 6px) rotate(-45deg);
+  }
+
+  .animate.ham-bar2 {
+    opacity: 0;
+  }
+
+  .animate.ham-bar3 {
+    transform: translate(0, -10px) rotate(45deg);
   }
 }

@@ -1,16 +1,23 @@
 import { useState } from "react";
+import { useEffect } from "react";
 import Label from "./Label";
 import Rate from "./Rate";
 import Time from "./Time";
+import Compounding from "./Compounding";
 
-const Calculator = () => {
+const Calculator = ({ isCompound }) => {
     const [showResu, setShowRes] = useState(false);
     const [P, setP] = useState(0);
     const [T, setT] = useState(0);
     const [R, setSelectedRate] = useState(1);
+    const [C, setC] = useState(0);
 
-    const handlePChange = (principle) => {
-        setP(principle);
+    useEffect(() => {
+        setShowRes(false);
+    }, [P, T, R, C]);
+
+    const handlePChange = (numPrinciple) => {
+        setP(numPrinciple);
     };
     const handleTChange = (time) => {
         setT(time);
@@ -18,27 +25,32 @@ const Calculator = () => {
     const handleRateChange = (numRate) => {
         setSelectedRate(numRate);
     };
+    const handleCChange = (numCompouding) => {
+        setC(numCompouding);
+    };
 
-    function calcIntrest() {
+    function calcSimpleIntrest() {
         const intrest = (P * T * R) / 100;
-        return intrest;
+        return intrest.toFixed(2);
     }
 
-    const I = calcIntrest();
+    function calcCompoundInterest() {
+        const compoundAmount = P * Math.pow((1 + (R / (100 * C))), C * T);
+        return (compoundAmount - P).toFixed(2);
+    }
+
+    const I = isCompound ? parseFloat(calcCompoundInterest()) : parseFloat(calcSimpleIntrest());
 
     function calcAmount() {
-        const amount = P + I;
-        return amount
+        const amount = isCompound ? P * Math.pow((1 + (R / (100 * C))), C * T) : P + I;
+        return amount.toFixed(2)
     }
-    const A = calcAmount();
+    const A = parseFloat(calcAmount());
 
-
-    // const intrest = (P * T * R) / 100;
-    // const amount = P + intrest;
 
     return (
         <>
-            <div className="flex flex-col bg-[#1b1b1b] border-2 border-t-0 border-stone-400">
+            <div className="flex flex-col bg-[#1b1b1b] border-2 border-t-0 border-stone-400 mb-16">
                 <div className="wrapper p-3">
                     <Label name="Principle" onPChange={handlePChange} />
                     <div className="flex mb-7">
@@ -48,11 +60,16 @@ const Calculator = () => {
                         </div>
                     </div>
                     <Rate onRateChange={handleRateChange} />
+
+                    {
+                        isCompound && (<Compounding name="Compounding Time" onCChange={handleCChange} />
+                        )
+                    }
+
                 </div>
-                
 
+                <button className="w-[100px] p-2 m-3 mb-5 border-2  border-stone-400 rounded-sm text-white bg-slate-700 hover:bg-[#131314]" onClick={() => setShowRes(true)}>Calculate</button>
 
-                <button className="w-[100px] p-2 m-3 border-2  border-stone-400 rounded-sm text-white bg-slate-700 hover:bg-[#131314]" onClick={() => setShowRes(true   )}>Calculate</button>
 
                 {showResu && <div className="text-center text-2xl">
                     <span className="p-2 text-white">Intrest = {I} </span>
@@ -60,9 +77,10 @@ const Calculator = () => {
 
                 </div>}
 
+            {showResu && <p className=" text-white text-center text-2xl font-medium my-5 pt-6 border-t-2" >You need to pay {I} as Intrest and {A} as total amount.</p>}
+
             </div>
 
-            {showResu && <p className=" text-white text-center text-2xl font-medium my-5" >You need to pay {I} as Intrest and {A} as total amount.</p>}
         </>
     )
 }
