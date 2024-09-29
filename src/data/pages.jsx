@@ -85,7 +85,7 @@ const pages = [
             <label  class="font-bold mr-2" for="message">Your Message </label><br>
             <textarea class="p-2 my-2 rounded-md font-semibold text-black w-[26rem]  md:w-[22rem] max-sm:w-[15rem]" id="message" name="message" rows="5" required></textarea><br><br>
 
-            <button type="submit">Send Message</button>
+            <button class="bg-white rounded-md text-black p-1 font-semibold" type="submit">Send Message</button>
         </form>
 
         <p>We appreciate your interest in the Nepali Interest Calculator and look forward to assisting you!</p>

@@ -24,7 +24,7 @@ function HomePage() {
                     </div>
                     <Calculator isCompound={compoundBtn} />
                 </div>
-                <div className='flex flex-col text-white ml-auto mr-auto w-2/4'>
+                <div id="faq" className='flex flex-col text-white ml-auto mr-auto w-2/4'>
                     <span className="max-sm:text-2xl max-md:text-3xl text-4xl font-medium mb-5 border-b-2">FAQs</span>
                     {
                         faqs.map((faq) => (
