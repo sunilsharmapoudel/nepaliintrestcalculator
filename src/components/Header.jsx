@@ -9,10 +9,10 @@ const Header = () => {
   }
   return (
     <>
-      <header className="sticky top-0">
+      <header className="sticky top-0 z-10">
         <div className="header flex flex-row justify-between items-center bg-[#1b1b1b]	">
           <div className="max-sm:text-xl text-2xl text-white font-medium brand flex items-center p-4">
-            <NavLink to={"/"}><img className="max-sm:h-[2.2rem] h-[2.5rem] pr-3" src="/images/nepali-intrest-calculator.png" alt="Nepali Intrest Calculator Logo" /></NavLink>
+            <NavLink  to={"/"}><img className="max-sm:h-[2.2rem] h-[2.5rem] pr-3" src="/images/nepali-intrest-calculator.png" alt="Nepali Intrest Calculator Logo" /></NavLink>
             <NavLink to={"/"}><span className="lg:text-3xl">Nepali Intrest Calculator</span></NavLink>
           </div>
           <div className="max-md:hidden  nav">
@@ -41,10 +41,10 @@ const Header = () => {
           <div className="flex fixed items-center  h-full w-full bg-slate-900">
             <div className="nav-mob font-normal text-white text-xl">
               <ul className="flex flex-col items-center">
-                <NavLink to={"/"}><li className="mb-5">Home</li></NavLink>
-                <NavLink to={"/about"}><li className="mb-5">About Us</li></NavLink>
-                <NavLink to={"/contact"}><li className="mb-5">Contact Us</li></NavLink>
-                <NavLink to={"/blogs"}><li className="mb-5">Blogs</li></NavLink>
+                <NavLink onClick={animate} to={"/"}><li className="mb-5">Home</li></NavLink>
+                <NavLink onClick={animate} to={"/about"}><li className="mb-5">About Us</li></NavLink>
+                <NavLink onClick={animate} to={"/contact"}><li className="mb-5">Contact Us</li></NavLink>
+                <NavLink onClick={animate} to={"/blogs"}><li className="mb-5">Blogs</li></NavLink>
               </ul>
             </div>
           </div>

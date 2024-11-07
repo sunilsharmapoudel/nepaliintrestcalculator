@@ -9,6 +9,7 @@ import ContactPage from './pages/ContactPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import TermsPage from './pages/TermsPage.jsx'
 import BlogsPage from './pages/BlogsPage.jsx'
+import BlogContentPage from './pages/BlogContentPage.jsx'
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={<App />}>
@@ -17,9 +18,11 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='about' element={<AboutPage />} />
     <Route path='terms-of-use' element={<TermsPage />} />
     <Route path='blogs' element={<BlogsPage />} />
+    <Route path='content' element={<BlogContentPage />} />
+
   </Route>
 ))
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router}/>
+  <RouterProvider router={router} />
 );
