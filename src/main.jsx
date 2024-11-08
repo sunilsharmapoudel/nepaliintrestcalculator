@@ -1,6 +1,5 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { createBrowserRouter, createRoutesFromElements, Route, Router, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import App from './App.jsx'
 
 import './index.css'
@@ -18,7 +17,8 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path='about' element={<AboutPage />} />
     <Route path='terms-of-use' element={<TermsPage />} />
     <Route path='blogs' element={<BlogsPage />} />
-    <Route path='content' element={<BlogContentPage />} />
+    <Route path='/:url' element={<BlogContentPage />} />
+
 
   </Route>
 ))
