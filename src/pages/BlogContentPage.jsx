@@ -16,30 +16,13 @@ const BlogContentPage = () => {
                 <div>
                     <h1 className='text-5xl font-semibold text-white mb-5 text-center'>{blog.title}</h1>
                     <div className="flex justify-around items-center">
-    <span className="text-sm font-semibold text-white">Published on : {blog.publisheddate}</span>
-    <span className="text-sm font-semibold text-white">Updated on : {blog.lastupdate}</span>
-</div>
+                        <span className="text-sm font-semibold text-white">Published on : {blog.publisheddate}</span>
+                        <span className="text-sm font-semibold text-white">Updated on : {blog.lastupdate}</span>
+                    </div>
                 </div>
             </div>
             <div className="text-white text-lg" dangerouslySetInnerHTML={{ __html: blog.content }}>
             </div>
-
-
-
-            {/* <div className='flex flex-wrap mx-auto my-10'>
-
-                {
-                    blogs.map((blog) => (
-                        <BlogSection
-                            key={blog.id}
-                            title={blog.title}
-                            publisheddate={blog.publisheddate}
-                            updatedate={blog.lastupdate}
-                            content={blog.content}
-                        />
-                    ))
-                }
-            </div> */}
         </div>
     )
 }
