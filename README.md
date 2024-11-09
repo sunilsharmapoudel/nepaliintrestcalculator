@@ -36,14 +36,11 @@ Mobile Screenshot
 
 - **React** for building the user interface and managing component states
 - **Tailwind CSS** for responsive and modern styling
-- **Node.js** and **Express.js** for backend API creation
-- **RESTful API** to handle calculations and serve data dynamically
 
 ## What I Learned
 
 - **Frontend Development**: Leveraged React with Tailwind CSS to create a user-friendly, responsive interface that is simple yet effective.
 - **State Management**: Managed complex user inputs and display elements with React states to ensure accurate and responsive calculations.
-- **Backend API**: Designed RESTful endpoints using Express to handle interest calculation logic and support frontend requests.
 - **Modular Codebase**: Organized project files to separate concerns, allowing easy maintenance and future expansion.
 - **Form Handling and Validation**: Implemented intuitive input fields and real-time validations for accurate user inputs.
 
