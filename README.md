@@ -12,7 +12,6 @@ Nepali Interest Calculator is a web application designed to simplify traditional
   - [What I Learned](#what-i-learned)
   - [Useful Resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 ## Overview
 
